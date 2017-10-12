@@ -7,6 +7,7 @@ var SoftwareSchema = new Schema({
 	tag: String,
 	description: String,
 	website: String,
+	icon: String,
 	rating: Number,
 })
 

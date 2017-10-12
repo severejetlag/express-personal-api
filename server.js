@@ -57,7 +57,14 @@ app.get('/api/personal', function apiPerssonal(req,res){
 });
 
 app.get('/api/software', function apiGetSoftware(req,res){
-
+  db.Software.find({})
+    .exec(function(err, books){
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json({data:books, length:books.length});
+    });
 });
 
 app.get('/api', function apiIndex(req, res) {
