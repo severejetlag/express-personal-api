@@ -19,7 +19,16 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
+
+var profile = {
+  name: 'Nick Lee', 
+  github: 'https://github.com/severejetlag',
+  githubAvator: 'https://avatars0.githubusercontent.com/u/31427289?v=4',
+  personalSite: 'https://severejetlag.github.io/',
+  currentCity: 'San Francisco', 
+  pets: `none :'(`
+}
 
 /**********
  * ROUTES *
@@ -41,6 +50,11 @@ app.get('/', function homepage(req, res) {
 /*
  * JSON API Endpoints
  */
+
+// Personal API response
+app.get('/api/personal', function apiPerssonal(req,res){
+  res.json(profile);
+});
 
 app.get('/api', function apiIndex(req, res) {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
