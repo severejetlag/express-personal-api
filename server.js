@@ -56,6 +56,10 @@ app.get('/api/personal', function apiPerssonal(req,res){
   res.json(profile);
 });
 
+app.get('/api/software', function apiGetSoftware(req,res){
+
+});
+
 app.get('/api', function apiIndex(req, res) {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
   // It would be seriously overkill to save any of this to your database.
