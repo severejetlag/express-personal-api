@@ -11,6 +11,11 @@ h1 {
 li {
   list-style: none; }
   li.row img {
-    width: 80%; }
+    width: 80%;
+    margin: 0px auto;
+    display: block; }
+  li.row textarea {
+    display: block;
+    width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

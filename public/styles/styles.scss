@@ -1,3 +1,16 @@
+%cf {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
 body {
 	color: #333;
 	font-family: Helvetica, Arial, sans-serif;
@@ -11,6 +24,14 @@ h1 {
 
 li{list-style: none;
 	&.row{
-		img{width: 80%;}
+		img{
+			width: 80%;
+			margin: 0px auto; 
+			display: block;
+		}
+		textarea{
+			display: block;
+			width: 100%;
+		}
 	}
 }

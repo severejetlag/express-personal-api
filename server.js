@@ -67,6 +67,37 @@ app.get('/api/software', function apiGetSoftware(req,res){
     });
 });
 
+app.delete('/api/software/:id', function (req, res) {
+  // get book id from url params (`req.params`)
+  console.log(req.params)
+  var softwareId = req.params.id;
+
+  db.Software.findOneAndRemove({ _id: softwareId }, function (err, deletedSoftware) {
+    res.json(deletedSoftware);
+  });
+});
+
+app.put('/api/software/:id', function(req,res){
+// get book id from url params (`req.params`)
+  console.log('software update', req.params);
+  // find the index of the book we want to remove
+  db.Software.findById(req.params.id, function(err, updatedSoftware){
+    if (err) {
+        res.status(500).send(err);
+    } else {
+        updatedSoftware.description = req.body.description || updatedSoftware.description;
+        updatedSoftware.save((err, updatedSoftware) => {
+            if (err) {
+                res.status(500).send(err)
+            }
+            res.status(200).send(updatedSoftware);
+        });
+    }
+  })
+  
+  res.json(req.params);
+});
+
 app.get('/api', function apiIndex(req, res) {
   // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
   // It would be seriously overkill to save any of this to your database.
